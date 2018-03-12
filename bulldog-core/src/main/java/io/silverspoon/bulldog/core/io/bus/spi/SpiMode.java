@@ -23,7 +23,7 @@ public enum SpiMode {
 
    private int modeValue;
 
-   private SpiMode(int modeValue) {
+   SpiMode(int modeValue) {
       this.modeValue = modeValue;
    }
 

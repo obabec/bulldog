@@ -45,7 +45,7 @@ public class MockedBus implements Bus {
 		this.alias = alias;
 	}
 
-	public void open() throws IOException {
+	public void open() {
 		isOpen = true;
 	}
 
@@ -53,18 +53,18 @@ public class MockedBus implements Bus {
 		return isOpen;
 	}
 
-	public void close() throws IOException {
+	public void close() {
 		isOpen = false;
 	}
 
-	public void writeByte(byte b) throws IOException {
+	public void writeByte(byte b) {
 	}
 
-	public byte readByte() throws IOException {
+	public byte readByte() {
 		return 0;
 	}
 
-	public void selectSlave(int address) throws IOException {
+	public void selectSlave(int address) {
 		selectedAddress = address;
 	}
 
@@ -77,12 +77,12 @@ public class MockedBus implements Bus {
 	}
 
 	@Override
-	public FileOutputStream getOutputStream() throws IOException {
+	public FileOutputStream getOutputStream() {
 		return null;
 	}
 
 	@Override
-	public FileInputStream getInputStream() throws IOException {
+	public FileInputStream getInputStream() {
 		return null;
 	}
 
@@ -96,16 +96,16 @@ public class MockedBus implements Bus {
 	}
 
 	@Override
-	public void writeString(String string) throws IOException {	
+	public void writeString(String string) {
 	}
 
 	@Override
-	public String readString() throws IOException {
+	public String readString() {
 		return null;
 	}
 
 	@Override
-	public void writeByte(int b) throws IOException {
+	public void writeByte(int b) {
 		// TODO Auto-generated method stub
 		
 	}

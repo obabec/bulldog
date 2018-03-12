@@ -31,7 +31,7 @@ public class PinIOOutputStream extends OutputStream {
    }
 
    @Override
-   public void write(int b) throws IOException {
+   public void write(int b) {
       group.startEnable();
 
       for (int i = 0; i < group.getDataPins().length; i++) {

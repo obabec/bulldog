@@ -74,7 +74,7 @@ public class PinIOGroup implements IOPort {
    }
 
    @Override
-   public void open() throws IOException {
+   public void open() {
 
    }
 
@@ -84,7 +84,7 @@ public class PinIOGroup implements IOPort {
    }
 
    @Override
-   public void close() throws IOException {
+   public void close() {
    }
 
    @Override
@@ -118,12 +118,12 @@ public class PinIOGroup implements IOPort {
    }
 
    @Override
-   public OutputStream getOutputStream() throws IOException {
+   public OutputStream getOutputStream() {
       return outputStream;
    }
 
    @Override
-   public InputStream getInputStream() throws IOException {
+   public InputStream getInputStream() {
       return inputStream;
    }
 

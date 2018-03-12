@@ -35,7 +35,7 @@ public class LinearMove implements Move {
       } else {
          double startPosition = actuator.getPosition();
          double delta = Math.abs(startPosition - toPosition);
-         int amountSteps = (int) (milliseconds / actuator.getRefreshIntervalMilliseconds());
+         int amountSteps = milliseconds / actuator.getRefreshIntervalMilliseconds();
          double stepSize = delta / amountSteps;
          for (int i = 0; i < amountSteps; i++) {
             if (startPosition < toPosition) {

@@ -84,7 +84,7 @@ public class BBBAnalogInput extends AbstractAnalogInput {
       ExecutorService executor = Executors.newSingleThreadExecutor();
       Callable<double[]> callable = new Callable<double[]>() {
 
-         public double[] call() throws Exception {
+         public double[] call() {
             return sample(amountSamples);
          }
 
@@ -97,7 +97,7 @@ public class BBBAnalogInput extends AbstractAnalogInput {
       ExecutorService executor = Executors.newSingleThreadExecutor();
       Callable<double[]> callable = new Callable<double[]>() {
 
-         public double[] call() throws Exception {
+         public double[] call() {
             return sample(amountSamples, frequency);
          }
 

@@ -93,7 +93,7 @@ public class BBBPwm extends AbstractPwm {
       }
    }
 
-   private void installOverlay(String overlay) throws FileNotFoundException, IOException, InterruptedException {
+   private void installOverlay(String overlay) throws IOException, InterruptedException {
       String deviceFileName = String.format(FILENAME_TEMPLATE, getPin().getName(), VERSION);
       DeviceTreeCompiler.compileOverlay(overlay, deviceFileName);
    }

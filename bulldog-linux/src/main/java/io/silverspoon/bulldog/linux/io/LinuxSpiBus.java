@@ -114,7 +114,7 @@ public class LinuxSpiBus extends AbstractLinuxBus implements SpiBus {
       return BulldogUtil.convertStreamToString(getInputStream());
    }
 
-   public void selectSlave(int address) throws IOException {
+   public void selectSlave(int address) {
       DigitalOutput output = board.getPin(address).as(DigitalOutput.class);
       selectSlave(output);
    }

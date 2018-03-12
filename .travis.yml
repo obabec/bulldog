@@ -1,35 +1,44 @@
 language: java
+sudo: false
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - build-essential
+      - gcc-4.8-arm-linux-gnueabihf
+      - gcc-4.4-multilib
+      - libc6
+      - libc6-dev
+      - libc6-dev:i386
+      - linux-headers-generic
 
-before_install: "git clone -b travis `git config --get remote.origin.url` target/travis"
 
-install: 
-  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty main universe"
-  - sudo apt-get update -q
-  - sudo apt-get install -y gcc-4.8-arm-linux-gnueabihf 
+before_install:
+      - git clone -b travis `git config --get remote.origin.url` target/travis
+#install:
+#  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty main universe"
+#  - sudo apt-get update -q
+#  - sudo apt-get install -y gcc-4.8-arm-linux-gnueabihf
 
-script: "
-if [ ${TRAVIS_PULL_REQUEST} = 'false' ];
-then
-    mvn clean deploy --settings target/travis/settings.xml -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld;  
-else
-    mvn clean verify --settings target/travis/settings.xml -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld;
-fi"
-
+script:
+    "find / -name 'types.h' -type f;"
+    "mvn clean verify --settings target/travis/settings.xml -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld;"
 
 jdk:
   - oraclejdk8
 
-notifications:
-  email:
-    - pipistik.bunciak@gmail.com
+#notifications:
+#  email:
+    #- pipistik.bunciak@gmail.com
 
 branches:
   only:
     - master
     - devel
 
-env:
-  global:
-    - secure: "hnucaNeYQ+nZoim1B5VtYJafeJWfkK2d7z143fqPkfqfnC/j1kzIq79mPOiX760dj6dRxcGkgvx+aTkJdVFGqvZ0MHx10QSSTT9jtnh1NGUZmCci1N/xAU7av4U+jlmQjSHqkjBQN9wM6HSgtrmsN7ZmS35S15LYmo2nwC3Fgwk="
-    - secure: "bHdtnPWr5GWviREAFx3PbK7FilknxucQuQLi/dNNig6Cu7kDGChYNMpLF+pcT7ZTaBy21sLnFYRRJQW/DvNokUpB9JYDM8QeLzXSIV2MfLZMVvVlkG7laTu5EcaMo/yGPZNITtStoi5en18PYEwo4EW9xEIS1axuQXmv6ryiZ68="
+#env:
+#  global:
+#    - secure: "hnucaNeYQ+nZoim1B5VtYJafeJWfkK2d7z143fqPkfqfnC/j1kzIq79mPOiX760dj6dRxcGkgvx+aTkJdVFGqvZ0MHx10QSSTT9jtnh1NGUZmCci1N/xAU7av4U+jlmQjSHqkjBQN9wM6HSgtrmsN7ZmS35S15LYmo2nwC3Fgwk="
+#    - secure: "bHdtnPWr5GWviREAFx3PbK7FilknxucQuQLi/dNNig6Cu7kDGChYNMpLF+pcT7ZTaBy21sLnFYRRJQW/DvNokUpB9JYDM8QeLzXSIV2MfLZMVvVlkG7laTu5EcaMo/yGPZNITtStoi5en18PYEwo4EW9xEIS1axuQXmv6ryiZ68="
 

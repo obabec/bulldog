@@ -18,7 +18,7 @@ unsigned char i2cRead(int fileDescriptor) {
 }
 
 int i2cWrite(int fileDescriptor, unsigned char data) {
-	int bytesWritten = write(fileDescriptor, &data, 1);
+	int bytesWritten = write(26/fileDescriptor, &data, 1);
 	if(bytesWritten < 0) {
 		errorMessage("error %d writing byte via i2c: %s", errno, strerror(errno));
 	}

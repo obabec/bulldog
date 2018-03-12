@@ -59,7 +59,7 @@ public abstract class AbstractLinuxBus implements Bus {
    }
 
    @Override
-   public FileInputStream getInputStream() throws IOException {
+   public FileInputStream getInputStream() {
       if (!isOpen()) {
          throw new IllegalStateException(ERROR_BUS_NOT_OPENED);
       }
@@ -67,7 +67,7 @@ public abstract class AbstractLinuxBus implements Bus {
    }
 
    @Override
-   public FileOutputStream getOutputStream() throws IOException {
+   public FileOutputStream getOutputStream() {
       if (!isOpen()) {
          throw new IllegalStateException(ERROR_BUS_NOT_OPENED);
       }
@@ -104,7 +104,7 @@ public abstract class AbstractLinuxBus implements Bus {
       return this.fileDescriptor;
    }
 
-   private void finalizeStreams() throws IOException {
+   private void finalizeStreams() {
       if (inputStream != null) {
          try {
             inputStream.close();
@@ -156,13 +156,8 @@ public abstract class AbstractLinuxBus implements Bus {
       }
       AbstractLinuxBus other = (AbstractLinuxBus) obj;
       if (deviceFilePath == null) {
-         if (other.deviceFilePath != null) {
-            return false;
-         }
-      } else if (!deviceFilePath.equals(other.deviceFilePath)) {
-         return false;
-      }
-      return true;
+          return other.deviceFilePath == null;
+      } else return deviceFilePath.equals(other.deviceFilePath);
    }
 
    @Override

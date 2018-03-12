@@ -59,8 +59,7 @@ public class DigitalIOFeature extends AbstractPinFeature implements DigitalIO {
          if (input.isSetup()) {
             input.teardown();
          }
-         ;
-         output.setup();
+          output.setup();
       }
    }
 

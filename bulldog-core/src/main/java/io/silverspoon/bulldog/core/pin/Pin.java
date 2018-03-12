@@ -124,7 +124,7 @@ public class Pin {
     */
    public <T extends PinFeature> void activateFeature(Class<T> feature) {
       checkIfDesiredFeatureIsAvailable(feature);
-      T selectedFeature = (T) getFeature(feature);
+      T selectedFeature = getFeature(feature);
       activateFeature(selectedFeature);
    }
 

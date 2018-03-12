@@ -31,7 +31,7 @@ public class PwmFrequencyCalculator {
          double divisor = CLOCK_FREQUENCY / frequency;
          int DIVI = (int) Math.floor(divisor);
          int DIVF = (int) Math.floor((divisor - DIVI) * 1024);
-         int divreg = (0x5a << 24) | ((int) DIVI << 12) | (DIVF);
+         int divreg = (0x5a << 24) | (DIVI << 12) | (DIVF);
 
          if (Double.isNaN(DIVF) || Double.isInfinite(DIVI) || DIVI < 1 || DIVI > 4095) {
             error = true;

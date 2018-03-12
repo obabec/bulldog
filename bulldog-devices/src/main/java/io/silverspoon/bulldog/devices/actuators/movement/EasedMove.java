@@ -52,7 +52,7 @@ public class EasedMove implements Move {
          durationMilliseconds = (int) (delta * actuator.getMillisecondsPerUnit());
       }
 
-      int amountSteps = (int) (durationMilliseconds / actuator.getRefreshIntervalMilliseconds());
+      int amountSteps = durationMilliseconds / actuator.getRefreshIntervalMilliseconds();
       boolean isInverse = startPosition > toPosition;
       for (int i = 0; i < amountSteps - 1; i++) {
          double positionFactor = options.calculate(easing, i, amountSteps);

@@ -55,9 +55,8 @@ public enum Signal {
       if (value == null) {
          throw new IllegalArgumentException("value cannot be null!");
       }
-      ;
 
-      String interpretedValue = value.trim().toLowerCase();
+       String interpretedValue = value.trim().toLowerCase();
 
       if (BulldogUtil.isStringNumeric(interpretedValue)) {
          if (Double.parseDouble(interpretedValue) == 0) {
@@ -70,9 +69,8 @@ public enum Signal {
          } else if (interpretedValue.equals("high")) {
             return Signal.High;
          }
-         ;
 
-         throw new IllegalArgumentException(interpretedValue + " is not a valid value for a signal");
+          throw new IllegalArgumentException(interpretedValue + " is not a valid value for a signal");
       }
    }
 

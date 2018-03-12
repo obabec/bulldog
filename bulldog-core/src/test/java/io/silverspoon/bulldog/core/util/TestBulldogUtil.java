@@ -122,9 +122,9 @@ public class TestBulldogUtil {
 		TestCase.assertEquals(text, readString);
 		
 		readString = BulldogUtil.readFileAsString("DOES NOT EXIST");
-		TestCase.assertNull(readString);;
-		
-		writer.write(text2);
+		TestCase.assertNull(readString);
+
+        writer.write(text2);
 		writer.flush();
 		
 		readString = BulldogUtil.readFileAsString(file.getAbsolutePath());

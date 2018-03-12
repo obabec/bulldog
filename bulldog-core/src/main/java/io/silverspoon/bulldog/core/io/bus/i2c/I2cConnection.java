@@ -39,7 +39,7 @@ public class I2cConnection extends BusConnection {
       writeBytes(new byte[] { (byte) register, (byte) data });
    }
 
-   public void writeBytesToRegister(int register, byte[] data) throws IOException {
+   public void writeBytesToRegister(int register, byte[] data) {
       byte[] bytesToWrite = new byte[data.length + 1];
       bytesToWrite[0] = (byte) register;
       System.arraycopy(data, 0, bytesToWrite, 1, data.length);

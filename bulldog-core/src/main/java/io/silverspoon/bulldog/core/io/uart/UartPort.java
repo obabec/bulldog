@@ -20,8 +20,8 @@ import io.silverspoon.bulldog.core.pin.Pin;
 
 public interface UartPort extends SerialPort {
 
-   public Pin getRx();
+   Pin getRx();
 
-   public Pin getTx();
+   Pin getTx();
 
 }

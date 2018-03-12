@@ -67,7 +67,7 @@ public class PCF8574 extends AbstractPinProvider implements InterruptListener {
       this(bus.createI2cConnection(address), interrupt);
    }
 
-   public PCF8574(I2cConnection connection, DigitalInput interrupt) throws IOException {
+   public PCF8574(I2cConnection connection, DigitalInput interrupt) {
       createPins();
       this.connection = connection;
       setInterrupt(interrupt);

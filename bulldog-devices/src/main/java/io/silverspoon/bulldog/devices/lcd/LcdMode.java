@@ -34,7 +34,7 @@ public enum LcdMode {
    private int rows;
    private int columns;
 
-   private LcdMode(int rows, int cols, int... memoryOffsets) {
+   LcdMode(int rows, int cols, int... memoryOffsets) {
       this.memoryOffsets = memoryOffsets;
       this.rows = rows;
       this.columns = cols;

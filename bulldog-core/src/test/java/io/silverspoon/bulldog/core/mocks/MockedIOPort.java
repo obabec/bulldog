@@ -47,7 +47,7 @@ public class MockedIOPort implements IOPort {
 	}
 
 	@Override
-	public void open() throws IOException {
+	public void open() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -59,55 +59,55 @@ public class MockedIOPort implements IOPort {
 	}
 
 	@Override
-	public void close() throws IOException {
+	public void close() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void writeByte(int b) throws IOException {
+	public void writeByte(int b) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void writeBytes(byte[] bytes) throws IOException {
+	public void writeBytes(byte[] bytes) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void writeString(String string) throws IOException {
+	public void writeString(String string) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public byte readByte() throws IOException {
+	public byte readByte() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int readBytes(byte[] buffer) throws IOException {
+	public int readBytes(byte[] buffer) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public String readString() throws IOException {
+	public String readString() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public OutputStream getOutputStream() throws IOException {
+	public OutputStream getOutputStream() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public InputStream getInputStream() throws IOException {
+	public InputStream getInputStream() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -19,21 +19,21 @@ import io.silverspoon.bulldog.devices.actuators.movement.Move;
 
 public interface Actuator {
 
-   public void moveTo(double position);
+   void moveTo(double position);
 
-   public void setPosition(double position);
+   void setPosition(double position);
 
-   public double getPosition();
+   double getPosition();
 
-   public void move(Move move);
+   void move(Move move);
 
-   public void moveAsync(Move move);
+   void moveAsync(Move move);
 
-   public void awaitMoveCompleted();
+   void awaitMoveCompleted();
 
-   public boolean isMoving();
+   boolean isMoving();
 
-   public int getMillisecondsPerUnit();
+   int getMillisecondsPerUnit();
 
-   public int getRefreshIntervalMilliseconds();
+   int getRefreshIntervalMilliseconds();
 }

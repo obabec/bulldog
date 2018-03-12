@@ -103,16 +103,11 @@ public class LinuxSerialPort implements SerialPort, LinuxEpollListener {
       }
       LinuxSerialPort other = (LinuxSerialPort) obj;
       if (deviceFilePath == null) {
-         if (other.deviceFilePath != null) {
-            return false;
-         }
-      } else if (!deviceFilePath.equals(other.deviceFilePath)) {
-         return false;
-      }
-      return true;
+          return other.deviceFilePath == null;
+      } else return deviceFilePath.equals(other.deviceFilePath);
    }
 
-   private void finalizeStreams() throws IOException {
+   private void finalizeStreams() {
       if (inputStream != null) {
          try {
             inputStream.close();
@@ -164,7 +159,7 @@ public class LinuxSerialPort implements SerialPort, LinuxEpollListener {
    }
 
    @Override
-   public InputStream getInputStream() throws IOException {
+   public InputStream getInputStream() {
       if (!isOpen()) {
          throw new IllegalStateException(ERROR_PORT_NOT_OPEN);
       }
@@ -178,7 +173,7 @@ public class LinuxSerialPort implements SerialPort, LinuxEpollListener {
    }
 
    @Override
-   public OutputStream getOutputStream() throws IOException {
+   public OutputStream getOutputStream() {
       if (!isOpen()) {
          throw new IllegalStateException(ERROR_PORT_NOT_OPEN);
       }
@@ -235,7 +230,7 @@ public class LinuxSerialPort implements SerialPort, LinuxEpollListener {
       }
    }
 
-   public byte readByte() throws IOException {
+   public byte readByte() {
       if (!isOpen()) {
          throw new IllegalStateException(ERROR_PORT_NOT_OPEN);
       }
@@ -244,7 +239,7 @@ public class LinuxSerialPort implements SerialPort, LinuxEpollListener {
    }
 
    @Override
-   public int readBytes(byte[] buffer) throws IOException {
+   public int readBytes(byte[] buffer) {
       if (!isOpen()) {
          throw new IllegalStateException(ERROR_PORT_NOT_OPEN);
       }
@@ -318,7 +313,7 @@ public class LinuxSerialPort implements SerialPort, LinuxEpollListener {
       this.stopBits = stopBits;
    }
 
-   public void writeByte(int data) throws IOException {
+   public void writeByte(int data) {
       if (!isOpen()) {
          throw new IllegalStateException(ERROR_PORT_NOT_OPEN);
       }

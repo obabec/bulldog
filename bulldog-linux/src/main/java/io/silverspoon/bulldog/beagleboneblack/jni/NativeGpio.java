@@ -43,7 +43,7 @@ public class NativeGpio {
    }
 
    public static int getBank(int pin) {
-      return (int) (pin / 32);
+      return pin / 32;
    }
 
    public static void initialize() {
