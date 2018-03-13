@@ -34,8 +34,9 @@ jdk:
 
 branches:
   only:
-    - master
-    - devel
+    - containerBuild
+#    - master
+#    - devel
 
 #env:
 #  global:
